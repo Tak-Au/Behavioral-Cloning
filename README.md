@@ -18,6 +18,13 @@ The Model.ipynb file contains the code for training and saving the convolution n
 
 The model that was used is the same as the one Nivida used to train their self driving car (model.ipynb line 10).  The table below shows the summary of the architect. 
 
+
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+
+
 Layer                            Output Shape          Param #     Connected to
 ____________________________________________________________________________________________________
 Layer (type)                     Output Shape          Param #     Connected to                     
