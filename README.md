@@ -21,6 +21,7 @@ The model that was used is the same as the one Nivida used to train their self d
 
 |Layer  | Output Shape  |  Param numbers  |  Connected to|
 |-------|---------------|-----------------|--------------|
+|cropping2d_1 (Cropping2D) |(None, 65, 320, 3)|0| cropping2d_input_1[0][0]|
 
 
 
