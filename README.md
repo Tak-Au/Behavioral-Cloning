@@ -20,6 +20,7 @@ The model that was used is the same as the one Nivida used to train their self d
 
 
 |Layer  | Output Shape  |  Param numbers  |  Connected to|
+|-------|---------------|-----------------|--------------|
 
 
 
