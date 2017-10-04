@@ -83,6 +83,7 @@ After using LeNet network without sucess, I went for the Nvidia Neural network a
 
 ####2. Final Model Architectur
 The final model architecture (model.py lines 107-138) consisted of the following archtiecture:
+
 |Layer  | Output Shape  |  Param numbers  |  Connected to|
 |-------|---------------|-----------------|--------------|
 |cropping2d_1 (Cropping2D) |(None, 65, 320, 3)|0| cropping2d_input_1[0][0]|
