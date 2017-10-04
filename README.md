@@ -87,29 +87,8 @@ Here is a visualization of the architecture
 
 ####3. Creation of the Training Set & Training Process
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
+To create training and validation set, I drive the track twice in both directions.  I tried to drive the car as center as possible.  Then I split the data into training set and validation at 80% and 20% split at random.  Then I train the NN with this and see how the car performed.  
 
-![alt text][image2]
-
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
-
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
-
-Then I repeated this process on track two in order to get more data points.
-
-To augment the data sat, I used (2) proven ways for this distorion: horizontal shift and brightness adjustment (Line 18).  I also flipped the image left and right so that I can create more data from the existing dataset.  
-
- 
-![alt text][image6]
-![alt text][image7]
-
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+I used Adam optimizer for the training process.  I used keras checkpoint function to generate model on every epoche.  I ran each model to see which one does the best.  I find this to be the best way to pick the best model.  From the best model, I examine where are some of the problematic areas.  Once I identify them, I go back to the simulator and drive to the problematic area and drive the car back from left/right and steer back to the center.  Eventually, the Neural network was able to drive the car consistently.  
 
 
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
