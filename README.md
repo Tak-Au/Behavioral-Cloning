@@ -44,8 +44,11 @@ The model that was used is the same as the one Nivida used to train their self d
 |dense_5 (Dense)                  |(None, 1)             |11          |dense_4[0][0]  
 
 Total params: 2,712,951
+
 Trainable params: 2,712,951
+
 Non-trainable params: 0
+
 
 
 ####2. Attempts to reduce overfitting in the model
