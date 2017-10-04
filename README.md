@@ -10,15 +10,62 @@ python drive.py NvidiaModel.09.h5
 
 ####3. Submission code is usable and readable
 
-The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
+The Model.ipynb file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
 ###Model Architecture and Training Strategy
 
 ####1. An appropriate model architecture has been employed
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
+The model that was used is the same as the one Nivida used to train their self driving car (model.ipynb line 10).  The table below shows the summary of the architect. 
 
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
+____________________________________________________________________________________________________
+Layer (type)                     Output Shape          Param #     Connected to                     
+====================================================================================================
+cropping2d_1 (Cropping2D)        (None, 65, 320, 3)    0           cropping2d_input_1[0][0]         
+____________________________________________________________________________________________________
+lambda_1 (Lambda)                (None, 65, 320, 3)    0           cropping2d_1[0][0]               
+____________________________________________________________________________________________________
+convolution2d_1 (Convolution2D)  (None, 31, 158, 24)   1824        lambda_1[0][0]                   
+____________________________________________________________________________________________________
+activation_1 (Activation)        (None, 31, 158, 24)   0           convolution2d_1[0][0]            
+____________________________________________________________________________________________________
+convolution2d_2 (Convolution2D)  (None, 14, 77, 36)    21636       activation_1[0][0]               
+____________________________________________________________________________________________________
+activation_2 (Activation)        (None, 14, 77, 36)    0           convolution2d_2[0][0]            
+____________________________________________________________________________________________________
+convolution2d_3 (Convolution2D)  (None, 5, 37, 48)     43248       activation_2[0][0]               
+____________________________________________________________________________________________________
+activation_3 (Activation)        (None, 5, 37, 48)     0           convolution2d_3[0][0]            
+____________________________________________________________________________________________________
+convolution2d_4 (Convolution2D)  (None, 3, 35, 64)     27712       activation_3[0][0]               
+____________________________________________________________________________________________________
+activation_4 (Activation)        (None, 3, 35, 64)     0           convolution2d_4[0][0]            
+____________________________________________________________________________________________________
+convolution2d_5 (Convolution2D)  (None, 1, 33, 64)     36928       activation_4[0][0]               
+____________________________________________________________________________________________________
+activation_5 (Activation)        (None, 1, 33, 64)     0           convolution2d_5[0][0]            
+____________________________________________________________________________________________________
+flatten_1 (Flatten)              (None, 2112)          0           activation_5[0][0]               
+____________________________________________________________________________________________________
+dense_1 (Dense)                  (None, 1164)          2459532     flatten_1[0][0]                  
+____________________________________________________________________________________________________
+dropout_1 (Dropout)              (None, 1164)          0           dense_1[0][0]                    
+____________________________________________________________________________________________________
+dense_2 (Dense)                  (None, 100)           116500      dropout_1[0][0]                  
+____________________________________________________________________________________________________
+dropout_2 (Dropout)              (None, 100)           0           dense_2[0][0]                    
+____________________________________________________________________________________________________
+dense_3 (Dense)                  (None, 50)            5050        dropout_2[0][0]                  
+____________________________________________________________________________________________________
+dropout_3 (Dropout)              (None, 50)            0           dense_3[0][0]                    
+____________________________________________________________________________________________________
+dense_4 (Dense)                  (None, 10)            510         dropout_3[0][0]                  
+____________________________________________________________________________________________________
+dense_5 (Dense)                  (None, 1)             11          dense_4[0][0]                    
+====================================================================================================
+Total params: 2,712,951
+Trainable params: 2,712,951
+Non-trainable params: 0
 
 ####2. Attempts to reduce overfitting in the model
 
