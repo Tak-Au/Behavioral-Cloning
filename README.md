@@ -16,40 +16,7 @@ The Model.ipynb file contains the code for training and saving the convolution n
 
 ####1. An appropriate model architecture has been employed
 
-The model that was used is the same as the one Nivida used to train their self driving car (Model.py line 107).  The table below shows the summary of the architect. 
-
-
-|Layer  | Output Shape  |  Param numbers  |  Connected to|
-|-------|---------------|-----------------|--------------|
-|cropping2d_1 (Cropping2D) |(None, 65, 320, 3)|0| cropping2d_input_1[0][0]|
-|lambda_1 (Lambda)                |(None, 65, 320, 3)    |0           |cropping2d_1[0][0] 
-|convolution2d_1 (Convolution2D)  |(None, 31, 158, 24)   |1824        |lambda_1[0][0]   
-|activation_1 (Activation)        |(None, 31, 158, 24)   |0           |convolution2d_1[0][0]            
-|convolution2d_2 (Convolution2D)  |(None, 14, 77, 36)    |21636       |activation_1[0][0]               
-|activation_2 (Activation)        |(None, 14, 77, 36)    |0           |convolution2d_2[0][0]            
-|convolution2d_3 (Convolution2D)  |(None, 5, 37, 48)     |43248       |activation_2[0][0]               
-|activation_3 (Activation)        |(None, 5, 37, 48)     |0           |convolution2d_3[0][0]            
-|convolution2d_4 (Convolution2D)  |(None, 3, 35, 64)     |27712       |activation_3[0][0]               
-|activation_4 (Activation)        |(None, 3, 35, 64)     |0           |convolution2d_4[0][0]            
-|convolution2d_5 (Convolution2D)  |(None, 1, 33, 64)     |36928       |activation_4[0][0]               
-|activation_5 (Activation)        |(None, 1, 33, 64)     |0           |convolution2d_5[0][0]            
-|flatten_1 (Flatten)              |(None, 2112)          |0           |activation_5[0][0]               
-|dense_1 (Dense)                  |(None, 1164)          |2459532     |flatten_1[0][0]                  
-|dropout_1 (Dropout)              |(None, 1164)          |0           |dense_1[0][0]                    
-|dense_2 (Dense)                  |(None, 100)           |116500      |dropout_1[0][0]                  
-|dropout_2 (Dropout)              |(None, 100)           |0           |dense_2[0][0]                    
-|dense_3 (Dense)                  |(None, 50)            |5050        |dropout_2[0][0]                  
-|dropout_3 (Dropout)              |(None, 50)            |0           |dense_3[0][0]                    
-|dense_4 (Dense)                  |(None, 10)            |510         |dropout_3[0][0]                  
-|dense_5 (Dense)                  |(None, 1)             |11          |dense_4[0][0]  
-
-Total params: 2,712,951
-
-Trainable params: 2,712,951
-
-Non-trainable params: 0
-
-
+The model that was used is the same as the one Nivida used to train their self driving car.  Refer to Final Model Architecture for more detail.
 
 ####2. Attempts to reduce overfitting in the model
 
@@ -81,7 +48,7 @@ I also tried to improve the network robustness by generating more data.  There a
 After using LeNet network without sucess, I went for the Nvidia Neural network architect that they used for their Self driving car.  After small adjustment to accomdinate for training image cropping and normalization, the network was able to drive the track.   
 
 
-####2. Final Model Architectur
+####2. Final Model Architecture
 The final model architecture (model.py lines 107-138) consisted of the following archtiecture:
 
 |Layer  | Output Shape  |  Param numbers  |  Connected to|
