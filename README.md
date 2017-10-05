@@ -84,6 +84,7 @@ Non-trainable params: 0
 Here is a visualization of the architecture 
 
 ![Nvidia Self Driving Car Neural Network](https://github.com/Tak-Au/Behavioral-Cloning/blob/master/cnn-architecture-624x890.png)
+
 Source: https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/
 
 ####3. Creation of the Training Set & Training Process
