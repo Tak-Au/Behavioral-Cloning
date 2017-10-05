@@ -9,8 +9,7 @@ python drive.py Model.h5
 ```
 The Model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-
-The model that was used is the same as the one Nivida used to train their self driving car.  Refer to Final Model Architecture for more detail.
+The model that was used is the same as the one Nivida used to train their self driving car.  
 
 The model contains dropout layers in order to reduce overfitting (model.py lines 132,134, and 136). 
 
@@ -26,6 +25,10 @@ Then I also added a lamda layer which allows custom function to apply on incomin
 I started with using LeNet architect.  I modified the last layer to only output 1 result so that it can learn the steering angle through regression.  Then I train the network via the training set and validation set that I obtain by spliting the driving data to 80% train and 20% validation.
 
 I also tried to improve the network robustness by generating more data.  There are 3 cameras which captures images simultaneously(Left, Center, and Right).  The center image will not required any steering correction factor since the image is center to the car.  However, the image to from the right and left of the car distort the road. If we were to use the left and right image directly without steering angle adjustment, the car will turn aggressively.  I used trial and error to come up with the steering angle adjustment and it appears that .28 to be the best value. 
+
+Another technique that I deployed to improvde the robustness is by augment the image in the trainning set.  I randomized horizonal shifting and brightness (Line 18).
+![Before Augment](https://github.com/Tak-Au/Behavioral-Cloning/blob/master/BeforeProcessedImage.png)
+![After Augment](https://github.com/Tak-Au/Behavioral-Cloning/blob/master/AfterProcessedImage.png)
 
 After using LeNet network without sucess, I went for the Nvidia Neural network architect that they used for their Self driving car.  After small adjustment to accomdinate for training image cropping and normalization, the network was able to drive the track.   
 
