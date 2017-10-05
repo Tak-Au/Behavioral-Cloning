@@ -83,7 +83,7 @@ Non-trainable params: 0
 
 Here is a visualization of the architecture 
 
-![alt text][image1]
+![alt text][https://github.com/Tak-Au/Behavioral-Cloning/blob/master/cnn-architecture-624x890.png]
 
 ####3. Creation of the Training Set & Training Process
 
