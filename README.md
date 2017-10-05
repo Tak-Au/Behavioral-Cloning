@@ -26,7 +26,7 @@ I started with using LeNet architect.  I modified the last layer to only output 
 
 I also tried to improve the network robustness by generating more data.  There are 3 cameras which captures images simultaneously(Left, Center, and Right).  The center image will not required any steering correction factor since the image is center to the car.  However, the image to from the right and left of the car distort the road. If we were to use the left and right image directly without steering angle adjustment, the car will turn aggressively.  I used trial and error to come up with the steering angle adjustment and it appears that .28 to be the best value. 
 
-Another technique that I deployed to improve the robustness is by augmenting the images in the trainning set by horizonal shifting and varying the brightness(Line 18).
+Another technique that I deployed to improve the robustness is by augmenting the images in the trainning set by horizonal shifting and varying the brightness(Line 18).  See images below.  The left is the orginial and the right is the augmented.
 
 ![Before Augment](https://github.com/Tak-Au/Behavioral-Cloning/blob/master/BeforeProcessedImage.png)
 ![After Augment](https://github.com/Tak-Au/Behavioral-Cloning/blob/master/AfterProcessedImage.png)
