@@ -1,5 +1,5 @@
 My project includes the following files:
-* Model.ipynb containing the script to create and train the model
+* Model.py containing the script to create and train the model
 * drive.py for driving the car in autonomous mode
 * Model.h5 containing a trained convolution neural network 
 
@@ -7,36 +7,18 @@ Using the Udacity provided simulator and my drive.py file, the car can be driven
 ```sh
 python drive.py Model.h5
 ```
+The Model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-####3. Submission code is usable and readable
-
-The Model.ipynb file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
-
-###Model Architecture and Training Strategy
-
-####1. An appropriate model architecture has been employed
 
 The model that was used is the same as the one Nivida used to train their self driving car.  Refer to Final Model Architecture for more detail.
-
-####2. Attempts to reduce overfitting in the model
 
 The model contains dropout layers in order to reduce overfitting (model.py lines 132,134, and 136). 
 
 The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 86). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-####3. Model parameter tuning
-
 The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 143).
 
-####4. Appropriate training data
-
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
-
-For details about how I created the training data, see the next section. 
-
-###Model Architecture and Training Strategy
-
-####1. Solution Design Approach
+Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road. 
 
 I used varies known neural network architecture to come up with the best one.  First I did features selection via cropping of image top portion and bottom portion that are not relevant to the road.  
 Then I also added a lamda layer which allows custom function to apply on incoming data.  For this lamda function, I normalized the data by mean centering and scaling it so that the data will output -0.5 and +0.5.  
@@ -48,7 +30,6 @@ I also tried to improve the network robustness by generating more data.  There a
 After using LeNet network without sucess, I went for the Nvidia Neural network architect that they used for their Self driving car.  After small adjustment to accomdinate for training image cropping and normalization, the network was able to drive the track.   
 
 
-####2. Final Model Architecture
 The final model architecture (model.py lines 107-138) consisted of the following archtiecture:
 
 |Layer  | Output Shape  |  Param numbers  |  Connected to|
@@ -87,10 +68,11 @@ Here is a visualization of the architecture
 
 Source: https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/
 
-####3. Creation of the Training Set & Training Process
-
 To create training and validation set, I drive the track twice in both directions.  I tried to drive the car as center as possible.  Then I split the data into training set and validation at 80% and 20% split at random.  Then I train the NN with this and see how the car performed.  
 
 I used Adam optimizer for the training process.  I used keras checkpoint function to generate model on every epoche.  I ran each model to see which one does the best.  I find this to be the best way to pick the best model.  From the best model, I examine where are some of the problematic areas.  Once I identify them, I go back to the simulator and drive to the problematic area and drive the car back from left/right and steer back to the center.  Eventually, the Neural network was able to drive the car consistently.  
 
+The link below shows the video of the car driving by the trained neural network.  
+
+https://github.com/Tak-Au/Behavioral-Cloning/blob/master/run09.mp4
 
