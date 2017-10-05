@@ -72,7 +72,7 @@ To create training and validation set, I drive the track twice in both direction
 
 I used Adam optimizer for the training process.  I used keras checkpoint function to generate model on every epoche.  I ran each model to see which one does the best.  I find this to be the best way to pick the best model.  From the best model, I examine where are some of the problematic areas.  Once I identify them, I go back to the simulator and drive to the problematic area and drive the car back from left/right and steer back to the center.  Eventually, the Neural network was able to drive the car consistently.  
 
-The link below shows the video of the car driving by the trained neural network.  
+The link below is the video of the car driven by the trained neural network.  
 
 https://github.com/Tak-Au/Behavioral-Cloning/blob/master/run09.mp4
 
